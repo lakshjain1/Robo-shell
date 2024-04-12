@@ -31,32 +31,36 @@ VALIDATE(){
 
 yum install nginx -y &>>$LOGFILE
 
-VALIDATE $?
+VALIDATE $? "Installing nginx"
 
 systemctl enable nginx &>>$LOGFILE
 
-VALIDATE $?
+VALIDATE $? "enabled nginx"
 
 systemctl start nginx &>>$LOGFILE
 
-VALIDATE $?
+VALIDATE $? "started nginx"
 
 rm -rf /usr/share/nginx/html/* &>>$LOGFILE
 
-VALIDATE $?
+VALIDATE $? "remove nginx files"
 
 curl -o /tmp/web.zip https://roboshop-builds.s3.amazonaws.com/web.zip &>>$LOGFILE
 
-VALIDATE $?
+VALIDATE $? "downloaded files"
 
 cd /usr/share/nginx/html &>>$LOGFILE
 
-VALIDATE $?
+VALIDATE $? "changing die"
 
 unzip /tmp/web.zip &>>$LOGFILE
 
-VALIDATE $?
+VALIDATE $? "unzip files"
 
 cp roboshop.conf /etc/nginx/default.d/roboshop.conf &>>$LOGFILE
 
-VALIDATE $?
+VALIDATE $? "changing conf"
+
+systemctl restart nginx  &>>$LOGFILE
+
+VALIDATE $? "Restarting Nginx"

@@ -61,7 +61,7 @@ pip3.6 install -r requirements.txt &>>$LOGFILE
 
 VALIDATE $? "Installed requiredments"
 
-cp payment.service /etc/systemd/system/payment.service &>>$LOGFILE
+cp /home/centos/Robo-shell/payment.service /etc/systemd/system/payment.service &>>$LOGFILE
 
 VALIDATE $? "copied payment"
 

@@ -57,7 +57,7 @@ npm install &>>$LOGFILE
 
 VALIDATE $? "installed npm user"
 
-cp user.service /etc/systemd/system/user.service &>>$LOGFILE
+cp /home/centos/Robo-shell/user.service /etc/systemd/system/user.service &>>$LOGFILE
 
 VALIDATE $? "copied user" 
 
@@ -69,7 +69,7 @@ systemctl start user &>>$LOGFILE
 
 VALIDATE $? "enabled and started"
 
-cp mongo.repo /etc/yum.repos.d/mongo.repo &>>$LOGFILE
+cp /home/centos/Robo-shell/mongo.repo /etc/yum.repos.d/mongo.repo &>>$LOGFILE
 
 VALIDATE $? "copied mongo.repo"
 

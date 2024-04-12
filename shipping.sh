@@ -65,7 +65,7 @@ mv target/shipping-1.0.jar shipping.jar &>>$LOGFILE
 
 VALIDATE $? "Moving jar file"
 
-cp shipping.service /etc/systemd/system/shipping.service &>>$LOGFILE
+cp /home/centos/Robo-shell/shipping.service /etc/systemd/system/shipping.service &>>$LOGFILE
 
 VALIDATE $? "Copied Shipping"
 

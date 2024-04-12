@@ -57,7 +57,7 @@ npm install &>>$LOGFILE
 
 VALIDATE $? "installed npm Catalogue"
 
-cp catalogue.service /etc/systemd/system/catalogue.service &>>$LOGFILE
+cp /home/centos/Robo-shell/catalogue.service /etc/systemd/system/catalogue.service &>>$LOGFILE
 
 VALIDATE $? "copied Catalogue" 
 
@@ -69,7 +69,7 @@ systemctl start catalogue &>>$LOGFILE
 
 VALIDATE $? "enabled and started"
 
-cp mongo.repo /etc/yum.repos.d/mongo.repo &>>$LOGFILE
+cp /home/centos/Robo-shell/mongo.repo /etc/yum.repos.d/mongo.repo &>>$LOGFILE
 
 VALIDATE $? "copied mongo.repo"
 
