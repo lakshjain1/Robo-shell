@@ -41,31 +41,31 @@ useradd roboshop &>>$LOGFILE
 
 mkdir /app &>>$LOGFILE
 
-curl -o /tmp/catalogue.zip https://roboshop-builds.s3.amazonaws.com/catalogue.zip &>>$LOGFILE
+curl -o /tmp/user.zip https://roboshop-builds.s3.amazonaws.com/user.zip &>>$LOGFILE
 
-VALIDATE $? "downloaded Catalogue"
+VALIDATE $? "downloaded user"
 
 cd /app &>>$LOGFILE
 
-unzip /tmp/catalogue.zip &>>$LOGFILE
+unzip /tmp/user.zip &>>$LOGFILE
 
-VALIDATE $? "unzip Catalogue"
+VALIDATE $? "unzip user"
 
 cd /app &>>$LOGFILE
 
 npm install &>>$LOGFILE
 
-VALIDATE $? "installed npm Catalogue"
+VALIDATE $? "installed npm user"
 
-cp catalogue.service /etc/systemd/system/catalogue.service &>>$LOGFILE
+cp user.service /etc/systemd/system/user.service &>>$LOGFILE
 
-VALIDATE $? "copied Catalogue" 
+VALIDATE $? "copied user" 
 
 systemctl daemon-reload &>>$LOGFILE
 
-systemctl enable catalogue &>>$LOGFILE
+systemctl enable user &>>$LOGFILE
 
-systemctl start catalogue &>>$LOGFILE
+systemctl start user &>>$LOGFILE
 
 VALIDATE $? "enabled and started"
 

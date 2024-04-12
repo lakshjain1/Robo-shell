@@ -29,22 +29,22 @@ VALIDATE(){
     fi
 }
 
-cp mongo.repo /etc/yum.repos.d/mongo.repo &>> $LOGFILE
+cp mongo.repo /etc/yum.repos.d/mongo.repo &>>$LOGFILE
 
 VALIDATE $? "Copied"
 
-yum install mongodb-org -y &>> $LOGFILE
+yum install mongodb-org -y &>>$LOGFILE
 
 VALIDATE $? "Installed mongo"
 
-systemctl enable mongod | systemctl start mongod &>> $LOGFILE
+systemctl enable mongod | systemctl start mongod &>>$LOGFILE
 
 VALIDATE $? "Enabled and Started"
 
-sed -i "s/127.0.0.1/0.0.0.0/g" /etc/mongod.conf &>> $LOGFILE
+sed -i "s/127.0.0.1/0.0.0.0/g" /etc/mongod.conf &>>$LOGFILE
 
 VALIDATE $? "Mongo Config"
 
-systemctl restart mongod &>> $LOGFILE
+systemctl restart mongod &>>$LOGFILE
 
 VALIDATE $? "restarted Mongo"
