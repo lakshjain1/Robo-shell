@@ -39,8 +39,6 @@ mkdir /app &>>$LOGFILE
 
 curl -L -o /tmp/shipping.zip https://roboshop-builds.s3.amazonaws.com/shipping.zip &>>$LOGFILE
 
-VALIDATE $? "downloaded shipping"
-
 cd /app &>>$LOGFILE
 
 VALIDATE $? "changed dir"
