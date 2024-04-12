@@ -35,11 +35,7 @@ VALIDATE $? "installed maven"
 
 useradd roboshop &>>$LOGFILE
 
-VALIDATE $? "created user"
-
 mkdir /app &>>$LOGFILE
-
-VALIDATE $? "make dir"
 
 curl -L -o /tmp/shipping.zip https://roboshop-builds.s3.amazonaws.com/shipping.zip &>>$LOGFILE
 

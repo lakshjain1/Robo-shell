@@ -39,11 +39,7 @@ VALIDATE $?
 
 useradd roboshop &>>$LOGFILE
 
-VALIDATE $? "User created"
-
 mkdir /app &>>$LOGFILE
-
-VALIDATE $? "dir created"
 
 curl -L -o /tmp/cart.zip https://roboshop-builds.s3.amazonaws.com/cart.zip &>>$LOGFILE
 
