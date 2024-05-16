@@ -77,6 +77,6 @@ yum install mongodb-org-shell -y &>>$LOGFILE
 
 VALIDATE $? "Installed mongo-shell"
 
-mongo --host mongodb.laksh.site </app/schema/catalogue.js &>>$LOGFILE
+mongo --host mongodb.laksh.site /app/schema/catalogue.js &>>$LOGFILE
 
 VALIDATE $? "mongo Ip registered"
